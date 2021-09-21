@@ -19,3 +19,6 @@
 [submodule "packages/wormhole-gui-bin"]
 	path = packages/wormhole-gui-bin
 	url = aur@aur.archlinux.org:wormhole-gui-bin
+[submodule "packages/aquayman-bin"]
+	path = packages/aquayman-bin
+	url = aur@aur.archlinux.org:aquayman-bin
