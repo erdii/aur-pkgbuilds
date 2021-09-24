@@ -24,7 +24,9 @@ for package in packages/*; do
 
   pushd $package
   updpkgsums
+  sed -r 's/(.*)(pkgrel=)([0-9]+)(.*)/echo "\1\2$((\3+1))\4"/ge' PKGBUILD | sponge PKGBUILD
   makepkg --printsrcinfo > .SRCINFO
+  makepkg
   git add .SRCINFO PKGBUILD
 
   new_version="$(grep 'pkgver' .SRCINFO | sed 's/pkgver =//' | sed -e 's/^[[:space:]]*//')"
