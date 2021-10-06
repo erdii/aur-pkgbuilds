@@ -1,9 +1,6 @@
 [submodule "packages/aws2-wrap"]
 	path = packages/aws2-wrap
 	url = aur@aur.archlinux.org:aws2-wrap
-[submodule "packages/go-yq-bin"]
-	path = packages/go-yq-bin
-	url = aur@aur.archlinux.org:go-yq-bin
 [submodule "packages/kubeflow-kfctl-bin"]
 	path = packages/kubeflow-kfctl-bin
 	url = aur@aur.archlinux.org:kubeflow-kfctl-bin
