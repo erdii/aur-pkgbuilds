@@ -1,5 +1,5 @@
 #!/bin/bash
-set -uo pipefail
+set -euxo pipefail
 
 git submodule init
 git submodule update
