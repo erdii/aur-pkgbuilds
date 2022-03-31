@@ -19,3 +19,6 @@
 [submodule "packages/rymdport-bin"]
 	path = packages/rymdport-bin
 	url = aur@aur.archlinux.org:rymdport-bin
+[submodule "packages/rymdport"]
+	path = packages/rymdport
+	url = aur@aur.archlinux.org:rymdport
