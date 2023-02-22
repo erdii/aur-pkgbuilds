@@ -31,13 +31,6 @@ for package in packages/*; do
 
   new_version="$(grep 'pkgver' .SRCINFO | sed 's/pkgver =//' | sed -e 's/^[[:space:]]*//')"
   git commit -m "[automated] $new_version"
-  popd
-
-  git add $package
-  pkgname=$(basename $package)
-  git commit -m "[automated] $pkgname $new_version"
-
-  pushd $package
   git push origin master
   popd
 done
