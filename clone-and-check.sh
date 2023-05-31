@@ -41,7 +41,7 @@ for package in $packages; do
   git add .SRCINFO PKGBUILD
   new_version="$(grep 'pkgver' .SRCINFO | sed 's/pkgver =//' | sed -e 's/^[[:space:]]*//')"
   git commit -m "[automated] $new_version"
-  echo "would push $pkgpath"
-  # git push origin master
+  echo "pushing $pkgpath"
+  git push origin master
   popd
 done
