@@ -1,0 +1,9 @@
+- aquayman-bin
+- aws2-wrap
+- kubeflow-kfctl-bin
+- mage-bin
+- openshift-client-bin
+- operator-registry-opm-bin
+- rymdport
+- rymdport-bin
+- magic-trace-bin

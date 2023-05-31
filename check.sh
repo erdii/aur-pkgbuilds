@@ -6,23 +6,22 @@ aur-out-of-date \
   -update \
   -local packages/*/.SRCINFO
 
-changed="0"
-
 for package in packages/*; do
   echo "> checking $package"
 
+  pushd "$package"
   set +e
-  git diff --quiet HEAD -- $package
+  git diff --quiet HEAD
   diff_code=$?
   set -e
+
   if [[ $diff_code == 0 ]]; then
+    popd
     continue
   fi
 
   echo "> updating $package"
-  changed="1"
 
-  pushd $package
   updpkgsums
   sed -r 's/(.*)(pkgrel=)([0-9]+)(.*)/echo "\1\2$((\3+1))\4"/ge' PKGBUILD | sponge PKGBUILD
   makepkg --printsrcinfo > .SRCINFO
@@ -34,7 +33,3 @@ for package in packages/*; do
   git push origin master
   popd
 done
-
-if [[ $changed == "1" ]]; then
-  git push
-fi
