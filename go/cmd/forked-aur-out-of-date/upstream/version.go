@@ -121,9 +121,9 @@ func VersionForPkg(pkg pkg.Pkg) (Version, error) {
 
 // VersionForScript runs the script using `sh -c` to determine the upstream version for the given package
 func VersionForScript(script string) (Version, error) {
-	output, err := exec.Command("/bin/sh", "-c", script).Output()
+	output, err := exec.Command("/bin/sh", "-c", os.ExpandEnv(script)).Output()
 	if err != nil {
-		return "", fmt.Errorf("Failed to run script `%s`: %w", script, err)
+		return "", fmt.Errorf("Failed to run script `%s` (expanded: `%s`): %w", script, os.ExpandEnv(script), err)
 	}
 	v := string(output)
 	v = strings.TrimSpace(v)

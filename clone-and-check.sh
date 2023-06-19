@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euxo pipefail
 
-OUTPATH="./packages"
+OUTPATH="./.cache/packages"
+export REPO_ROOT="$PWD"
 
 mkdir -p "$OUTPATH"
 
@@ -18,8 +19,8 @@ for package in $packages; do
 
   pushd "$pkgpath"
 
-  ../../.cache/forked-aur-out-of-date \
-    -config ../../aur-out-of-date.json \
+  "$REPO_ROOT/.cache/forked-aur-out-of-date" \
+    -config "$REPO_ROOT/aur-out-of-date.json" \
     -update \
     -local ".SRCINFO"
 
