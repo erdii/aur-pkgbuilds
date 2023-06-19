@@ -1,6 +1,6 @@
 {
   "ignore": {},
   "scripts": {
-    "openshift-client-bin": "go run ./cmd/openshift-client-bin-latest"
+    "openshift-client-bin": "cd ../../go && go build -o ../.cache/openshift-client-bin-latest ./cmd/openshift-client-bin-latest && ../.cache/openshift-client-bin-latest"
   }
 }

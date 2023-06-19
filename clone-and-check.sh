@@ -7,7 +7,9 @@ mkdir -p "$OUTPATH"
 
 packages="$(cat ./packages.txt)"
 
-go build -o forked-aur-out-of-date ./cmd/forked-aur-out-of-date
+pushd go
+go build -o ../.cache/forked-aur-out-of-date ./cmd/forked-aur-out-of-date
+popd
 
 for package in $packages; do
   pkgpath="${OUTPATH:?}/$package"
@@ -16,8 +18,8 @@ for package in $packages; do
 
   pushd "$pkgpath"
 
-  ../../forked-aur-out-of-date \
-    -config aur-out-of-date.json \
+  ../../.cache/forked-aur-out-of-date \
+    -config ../../aur-out-of-date.json \
     -update \
     -local ".SRCINFO"
 

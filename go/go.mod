@@ -1,4 +1,4 @@
-module github.com/erdii/aur-pkgbuilds
+module github.com/erdii/aur-pkgbuilds/go
 
 go 1.17
 
