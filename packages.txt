@@ -3,6 +3,8 @@ aws2-wrap
 kubeflow-kfctl-bin
 mage-bin
 openshift-client-bin
+ocm-cli-bin
+backplane-cli
 operator-registry-opm-bin
 rymdport
 rymdport-bin
