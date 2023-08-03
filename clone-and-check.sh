@@ -34,6 +34,8 @@ for package in $packages; do
     continue
   fi
 
+  read -p "Press Enter to continue" </dev/tty
+
   updpkgsums
   # TODO: reset pkgrel to 0 on bump and only increase otherwise
   sed -r 's/(.*)(pkgrel=)([0-9]+)(.*)/echo "\1\2$((\3+1))\4"/ge' PKGBUILD | sponge PKGBUILD
