@@ -6,7 +6,7 @@ export REPO_ROOT="$PWD"
 
 mkdir -p "$OUTPATH"
 
-packages="$(cat ./packages.txt)"
+packages="$(cat ./packages.txt | grep -vE '^#')"
 
 pushd go
 go build -o ../.cache/forked-aur-out-of-date ./cmd/forked-aur-out-of-date
