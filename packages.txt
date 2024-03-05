@@ -10,3 +10,4 @@ operator-registry-opm-bin
 rymdport
 rymdport-bin
 magic-trace-bin
+gvproxy-bin
